@@ -18,4 +18,20 @@ class LoggingTest extends TestCase
 
         self::assertTrue(true);
     }
+
+    public function testContext()
+    {
+        Log::info("Hello Info", ['User' => 'Hanif']);
+        self::assertTrue(true);
+    }
+
+    public function testWithContext()
+    {
+        Log::withContext(['User' => 'Hanif']);
+
+        Log::info("Hellow Info");
+        Log::error("Hellow Error");
+
+        self::assertTrue(true);
+    }
 }
