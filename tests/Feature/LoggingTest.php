@@ -43,4 +43,15 @@ class LoggingTest extends TestCase
         Log::info("Hello Laravel"); //send to default channel
         self::assertTrue(true);
     }
+
+    public function testFileHandler()
+    {
+        $filelogger = Log::channel("file");
+
+        $filelogger->error('Hello Error File');
+        $filelogger->info("Hello Info File");
+        $filelogger->warning("Hello Warning File");
+
+        self::assertTrue(true);
+    }
 }
